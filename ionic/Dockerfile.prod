@@ -1,0 +1,13 @@
+FROM node:14-alpine
+
+RUN npm install -g ionic
+
+WORKDIR /app
+
+COPY . .
+
+RUN npm i --legacy-peer-deps
+
+ENTRYPOINT [ "ionic" ]
+
+CMD ["build", "--prod"] 

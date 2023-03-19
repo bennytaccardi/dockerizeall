@@ -1,0 +1,19 @@
+FROM node:14-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm i npm@latest
+
+RUN npm install -g @ionic/cli
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 8200
+
+ENTRYPOINT ["ionic"]
+
+CMD ["serve", "--port", "8200", "--address", "0.0.0.0"]
