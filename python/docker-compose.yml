@@ -1,0 +1,8 @@
+version: '3'
+services:
+  pythonscript:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./src:/app/src/
